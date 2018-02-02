@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="/css/main.css" />
+        
+    </head>
+    <body>
+         {{> navbar}}
+        <div class="container">
+           Total: {{ data.length }}
+            <div class="row">
+                <ul class="list-group">
+                    {{#each data}}
+                        <li class="list-group-item">
+                            {{ this.text }}
+                            <input type="checkbox" disabled="true"  {{#if this.completed}}checked {{/if}} />
+                             {{ this.completed }}
+                            <a style="float:right;" href="/api/todo/delete/{{ this._id }}">Delete</a>
+                            
+                        </li>
+                    {{/each}}
+                </ul>
+               
+            </div>
+         </div>
+    </body>
+</html>
